@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/e9d7b015d0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Weather Wireframe</title>
+</head>
+
+<body>
+    <div class="card" style="width: 50rem">
+        <span class="border border-primary">
+            <div class="container">
+                <div class="current">
+                    <form class="search-form" id="search-form">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="search" placeholder="Type a city..." autofocus="on" autocomplete="off"
+                                    id="city-input" class="form-control shadow-sm" />
+                            </div>
+                            <div class="col">
+                                <input type="submit" value="Search" class="form-control btn btn-primary shadow-sm" />
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary shadow-sm" input type="submit" value="search"
+                                    id="home"><i class="fas fa-map-marker-alt"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <h1>Edmonton</h1>
+                            <h2 id="date">Tues 16:00</h2>
+                        </div>
+                        <div class="col">
+                            <div class="sun">☀</div>
+                        </div>
+                    </div>
+                    <h3>Currently</h3>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <span class="currentTemperature" id="current-temperature">10</span>
+                        <span class="units">
+                            <a href="#" id="celsius">℃</a>|<a href="#" id="fahrenheit">℉</a></span>
+        </span>
+    </div>
+    <div class="col">
+        <p class="weatherStat"><i class="fas fa-tint"></i> Precipitation 0%</p>
+        <p class="weatherStat"><i class="fas fa-wind"></i> Wind 10km/h</p>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <div class="day">Mon</div>
+            <br /><i class="fas fa-sun"></i>
+            <p class="temperature">10°C/-10°C</p>
+        </div>
+        <div class="col-sm">
+            <div class="day">Tues</div>
+            <br /><i class="fas fa-cloud-sun"></i>
+            <p class="temperature">10°C/-10°C</p>
+        </div>
+        <div class="col-sm">
+            <div class="day">Wed</div>
+            <br /><i class="fas fa-cloud-sun-rain"></i>
+            <p class="temperature">10°C/-10°C</p>
+        </div>
+        <div class="col-sm">
+            <div class="day">Thurs</div>
+            <br /><i class="far fa-snowflake"></i>
+            <p class="temperature">10°C/-10°C</p>
+        </div>
+        <div class="col-sm">
+            <div class="day">Fri</div>
+            <br /><i class="far fa-snowflake"></i>
+            <p class="temperature">10°C/-10°C</p>
+        </div>
+    </div>
+
+    <br />
+    <div class="alert alert-primary" role="alert">
+        Weather was updated 2 minutes ago
+        <button type="button" class="btn btn-primary">Refresh</button>
+    </div>
+    </div>
+    </span>
+    <script src="WeatherW4.js"></script>
+</body>
+
+</html>
