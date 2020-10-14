@@ -31,7 +31,6 @@ function convertToCelsius(event) {
 let cTemp = document.querySelector("#celsius");
 cTemp.addEventListener("click", convertToCelsius);
 
-//CITY SEARCH, SHOW TEMPERATURE & OTHER WEATHER STATS
 function search(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
@@ -43,7 +42,6 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
 function showTemperature(response) {
-  console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -52,5 +50,6 @@ function showTemperature(response) {
 function searchCity(city) {
   let apiKey = "9c48a62dcc12a129cf6c63c31fa92ac6";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  console.log(apiURL);
   axios.get(apiURL).then(showTemperature);
 }
