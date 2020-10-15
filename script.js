@@ -1,4 +1,4 @@
-//DATE & TIME
+
 let now = new Date();
 let h2 = document.querySelector("#date");
 let hours = now.getHours();
@@ -10,7 +10,7 @@ let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 let day = days[now.getDay()];
 h2.innerHTML = `${day} ${hours}:${minutes}`;
 
-//TEMPERATURE CONVERSION
+
 function convertToFahrenheit(event) {
   event.preventDefault();
   let currentTemperature = document.querySelector("#current-temperature");
@@ -42,14 +42,16 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
 function showTemperature(response) {
+  console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
 }
 function searchCity(city) {
   let apiKey = "9c48a62dcc12a129cf6c63c31fa92ac6";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  console.log(apiURL);
   axios.get(apiURL).then(showTemperature);
 }

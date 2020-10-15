@@ -35,6 +35,20 @@ h2 {
   padding-bottom: 30px;
   position: relative;
 }
+li {
+  list-style: none;
+  display: block;
+  margin: 0 auto;
+  line-height: 2;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.humidity {
+  font size: 30px;
+}
+.wind{
+  font size: 30px;
+}
 .units {
   font-size: 50px;
   position: relative;
@@ -42,7 +56,6 @@ h2 {
 .sun {
   font-size: 100px;
 }
-
 .currentTemperature {
   font-size: 50px;
   color: #fbc687;
