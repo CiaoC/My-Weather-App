@@ -8,7 +8,7 @@ function getCurrentLocation(event) {
 
 function searchLocation(position) {
   let apiKey = "9c48a62dcc12a129cf6c63c31fa92ac6";
-  let apiURL = `https://api.openweathermap.org/data/2.5/?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`;
   axios.get(apiURL).then(showTemperature);
 }
 function showTemperature(response) {
@@ -21,11 +21,34 @@ function showTemperature(response) {
   document.querySelector("#description").innerHTML = response.data.weather[0].description;
   document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
 }
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecastTemperature");
+  let forecast = null;
+  forecastElement.innerHTML = null;
+  
+  for (let index = 0; index < 5; index++){
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-sm">
+      <div class="day">Mon</div>
+      <br /><i class="fas fa-sun"></i>
+      <p class="temperature">${Math.round(forecast.main.temp_max)}°C/${Math.round(forecast.main.temp_min)}°C</p>
+      </div >
+    </div>
+  `;
+  }
+}
+
+
 function searchCity(city) {
   let apiKey = "9c48a62dcc12a129cf6c63c31fa92ac6";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiURL).then(showTemperature);
-}
+
+  apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiURL).then(displayForecast);
+};
 
 let now = new Date();
 let h2 = document.querySelector("#date");
@@ -69,4 +92,4 @@ function search(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-
+search("Edmonton");
