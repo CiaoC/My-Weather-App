@@ -31,8 +31,8 @@ function displayForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-sm">
-      <div class="day">Mon</div>
-      <br /><i class="fas fa-sun"></i>
+      <h5 id="dayofweek"> Mon </h5>
+      <br /><i class="fas fa-sun" id="forecastIcon"></i>
       <p class="temperature">${Math.round(forecast.main.temp_max)}°C/${Math.round(forecast.main.temp_min)}°C</p>
       </div >
     </div>
@@ -60,6 +60,7 @@ if (minutes < 10) {
 let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 let day = days[now.getDay()];
 h2.innerHTML = `${day} ${hours}:${minutes}`;
+
 
 
 function convertToFahrenheit(event) {
@@ -92,4 +93,4 @@ function search(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-search("Edmonton");
+
