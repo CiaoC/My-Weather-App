@@ -29,7 +29,7 @@ h3 {
   font-size: 50px;
 }
 h2 {
-  font-size: 25px;
+  font-size: 20px;
   color: #fbc687;
   padding-bottom: 30px;
   position: relative;
@@ -73,31 +73,6 @@ li {
 }
 .fa-wind {
   color: grey;
-  position: relative;
-}
-.fa-sun {
-  color: orange;
-  font-size: 50px;
-  position: relative;
-}
-.fa-cloud-sun {
-  color: blue;
-  font-size: 50px;
-  position: relative;
-}
-.fa-cloud-sun-rain {
-  color: darkgray;
-  font-size: 50px;
-  position: relative;
-}
-.fa-snowflake {
-  color: lightskyblue;
-  font-size: 50px;
-  position: relative;
-}
-.far fa-sun {
-  color: orange;
-  font-size: 70px;
   position: relative;
 }
 .fa-map-marker-alt {
