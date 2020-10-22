@@ -1,6 +1,6 @@
 //get current location
 let currentLocation = document.querySelector("#home");
-currentLocation.addEventListener("click", getCurrentLocation)
+currentLocation.addEventListener("click", getCurrentLocation);
 
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -15,7 +15,6 @@ function searchLocation(position) {
 
 //show various, current weather conditions/stats
 function showTemperature(response) {
-  console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -55,7 +54,7 @@ function searchCity(city) {
 
   apiURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiURL).then(displayForecast);
-};
+}
 
 //Home city time
 function formatDate(timestamp) {
