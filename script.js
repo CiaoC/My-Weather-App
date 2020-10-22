@@ -1,3 +1,4 @@
+//get current location
 let currentLocation = document.querySelector("#home");
 currentLocation.addEventListener("click", getCurrentLocation)
 
@@ -11,6 +12,8 @@ function searchLocation(position) {
   let apiURL = `http://api.openweathermap.org/data/2.5/?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`;
   axios.get(apiURL).then(showTemperature);
 }
+
+//show various, current weather conditions/stats
 function showTemperature(response) {
   console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
@@ -25,6 +28,7 @@ function showTemperature(response) {
   document.querySelector("#weatherIcon").setAttribute("alt", response.data.weather[0].description);
 }
 
+//display 5-day forecast
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecastTemperature");
   let forecast = null;
@@ -43,7 +47,7 @@ function displayForecast(response) {
   }
 }
 
-
+//Global city search (not current location)
 function searchCity(city) {
   let apiKey = "9c48a62dcc12a129cf6c63c31fa92ac6";
   let apiURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -53,19 +57,22 @@ function searchCity(city) {
   axios.get(apiURL).then(displayForecast);
 };
 
-let now = new Date();
-let h2 = document.querySelector("#date");
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = "0" + minutes;
+//Home city time
+function formatDate() {
+  let now = new Date();
+  let h2 = document.querySelector("#date");
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[now.getDay()];
+  h2.innerHTML = `${day} ${hours}:${minutes}`;
 }
-let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
-h2.innerHTML = `${day} ${hours}:${minutes}`;
 
 
-
+//temperature conversions (from C to F & F to C)
 function convertToFahrenheit(event) {
   event.preventDefault();
   let currentTemperature = document.querySelector("#current-temperature");
@@ -86,6 +93,7 @@ function convertToCelsius(event) {
 let cTemp = document.querySelector("#celsius");
 cTemp.addEventListener("click", convertToCelsius);
 
+//search function
 function search(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");

@@ -46,6 +46,7 @@ li {
   text-align: left;
   color: #fbc687;
   font-size: 20px;
+  text-transform: capitalize;
 }
 .humidity {
   font size: 30px;
