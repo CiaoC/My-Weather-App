@@ -67,7 +67,7 @@ function formatDate(timestamp) {
   }
   let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
   let day = days[now.getDay()];
-  h2.innerHTML = `${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
 
 
