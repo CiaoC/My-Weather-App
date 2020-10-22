@@ -25,6 +25,7 @@ function showTemperature(response) {
   document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector("#weatherIcon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   document.querySelector("#weatherIcon").setAttribute("alt", response.data.weather[0].description);
+  document.querySelector("#forecastIcons").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 //display 5-day forecast
@@ -38,7 +39,13 @@ function displayForecast(response) {
     forecastElement.innerHTML += `
     <div class="col-sm">
       <h5 id="dayofweek"> Mon </h5>
-      <br /><i class="fas fa-sun" id="forecastIcon"></i>
+      <br /><img
+                  src="http://openweathermap.org/img/wn/10d@2x.png" 
+                  width="100x" 
+                  height="100px" 
+                  alt="clear" 
+                  id="forecastIcons"
+                />
       <p class="temperature">${Math.round(forecast.main.temp_max)}°C/${Math.round(forecast.main.temp_min)}°C</p>
       </div >
     </div>
