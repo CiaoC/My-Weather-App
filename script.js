@@ -58,9 +58,8 @@ function searchCity(city) {
 };
 
 //Home city time
-function formatDate() {
+function formatDate(timestamp) {
   let now = new Date();
-  let h2 = document.querySelector("#date");
   let hours = now.getHours();
   let minutes = now.getMinutes();
   if (minutes < 10) {
