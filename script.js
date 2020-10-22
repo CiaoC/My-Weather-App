@@ -17,8 +17,11 @@ function searchLocation(position) {
 function showTemperature(response) {
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#current-temperature").innerHTML = Math.round(
-    response.data.main.temp
+    celsiusTemperature
   );
+
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML = response.data.weather[0].description;
@@ -77,26 +80,27 @@ function formatDate(timestamp) {
 }
 
 
-//temperature conversions (from C to F & F to C)
+//temperature conversions (from C to/from F)
+let fTemp = document.querySelector("#fahrenheit");
+fTemp.addEventListener("click", convertToFahrenheit);
+
 function convertToFahrenheit(event) {
   event.preventDefault();
   let currentTemperature = document.querySelector("#current-temperature");
-  let temperature = currentTemperature.innerHTML;
-  currentTemperature.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
+  currentTemperature.innerHTML = fahrenheit;
 }
 
-let fTemp = document.querySelector("#fahrenheit");
-fTemp.addEventListener("click", convertToFahrenheit);
+let celsiusTemperature = null;
+
+let cTemp = document.querySelector("#celsius");
+cTemp.addEventListener("click", convertToCelsius);
 
 function convertToCelsius(event) {
   event.preventDefault();
   let currentTemperature = document.querySelector("#current-temperature");
-  let temperature = currentTemperature.innerHTML;
-  currentTemperature.innerHTML = Math.round((temperature - 32) * (5 / 9));
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
 }
-
-let cTemp = document.querySelector("#celsius");
-cTemp.addEventListener("click", convertToCelsius);
 
 //search function
 function search(event) {
