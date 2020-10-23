@@ -42,7 +42,9 @@ function displayForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-sm">
-      <h5 id="dayofweek"> Mon </h5>
+      <h5>
+        ${formatHours(forecast.dt*1000)}
+      </h5>
       <br /><img
                   src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
                   width="100x" 
@@ -69,15 +71,23 @@ function searchCity(city) {
 
 //Home city time
 function formatDate(timestamp) {
-  let now = new Date();
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
+  let now = new Date(timestamp);
   let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
   let day = days[now.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
 }
 
 
