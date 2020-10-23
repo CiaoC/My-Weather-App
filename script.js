@@ -30,6 +30,7 @@ function showTemperature(response) {
   document.querySelector("#weatherIcon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   document.querySelector("#weatherIcon").setAttribute("alt", response.data.weather[0].description);
   document.querySelector("#forecastIcons").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  document.querySelector("#forecastIcon").setAttribute("alt", response.data.weather[0].description);
 }
 
 //display 5-day forecast
@@ -53,7 +54,6 @@ function displayForecast(response) {
                   id="forecastIcons"
                 />
       <span class="temperature">${Math.round(forecast.main.temp_max)}°C/${Math.round(forecast.main.temp_min)}°C</span>
-      </div >
     </div>
   `;
   }
@@ -113,7 +113,6 @@ function convertToCelsius(event) {
   currentTemperature.innerHTML = Math.round(celsiusTemperature);
 }
 
-
 //search function
 function search(event) {
   event.preventDefault();
@@ -125,4 +124,4 @@ function search(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-
+searchCity("Edmonton");
