@@ -17,14 +17,14 @@
   </head>
   <body>
     <div class="card" style="width: 50rem">
-      <span class="border border-primary">
+     
         <div class="container">
           <div class="current">
             <form id="search-form">
               <div class="row">
                 <div class="col-6">
                   <input type="search" placeholder="Type a city..." autofocus="on" autocomplete="off" id="city-input"
-                    class="form-control shadow-sm mb-1" />
+                    class="form-control shadow-sm" />
                 </div>
                 <div class="col">
                   <input type="submit" value="Search" class="form-control btn btn-primary shadow-sm" />
@@ -37,7 +37,7 @@
             <br />
           <div class="row">
             <div class="col">
-              <h1>Edmonton</h1>
+              <h1></h1>
               <h2 id="date"></h2>
             </div>
             <div class="col">
@@ -48,7 +48,6 @@
                   height="175px" 
                   alt="clear" 
                   id="weatherIcon"
-                  class="float right"
                 /></div>
             </div>
           </div>
@@ -57,9 +56,9 @@
           </div>
           <div class="row">
             <div class="col">
-              <span class="currentTemperature" id="current-temperature">10</span>
+              <span class="currentTemperature" id="current-temperature"></span>
               <span class="units">
-                <a href="#" id="celsius">℃</a>|<a href="#" id="fahrenheit">℉</a></span>
+                <a href="#" id="celsius">℃</a>|<a href="#" id="fahrenheit">℉</a>
               </span>
             </div>
             <div class="col-6">
@@ -73,7 +72,7 @@
           <div class="row" id="forecastTemperature" alt="clear"></div>
             
         </div>
-        
+      
       </div>
     </div>
 

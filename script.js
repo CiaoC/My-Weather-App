@@ -51,7 +51,8 @@ function displayForecast(response) {
                   width="100x" 
                   height="100px" 
                   alt="clear" 
-                  id="forecastIcons"
+                  id="forecastIcons
+                  class="forecast-icons"
                 />
       <span class="temperature">${Math.round(forecast.main.temp_max)}°C/${Math.round(forecast.main.temp_min)}°C</span>
     </div>
